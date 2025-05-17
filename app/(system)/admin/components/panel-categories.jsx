@@ -17,11 +17,13 @@ import { Button } from '@/components/ui/button';
 import { AlertCircle, Home, Pencil } from 'lucide-react';
 
 export default function PanelCategories({ handleViewRooms }) {
+  const { isPending, data: categories, isError, error } = useCategories();
+
   const [isHovered, setIsHovered] = useState(null);
   const [currentCategory, setCurrentCategory] = useState(null);
-
   const [isOpenDialogEdit, setIsOpenDialogEdit] = useState(false);
   const [isOpenDialogAdd, setIsOpenDialogAdd] = useState(false);
+
   const handleDialogChange = (open) => {
     setIsOpenDialogAdd(open);
   };
@@ -37,7 +39,6 @@ export default function PanelCategories({ handleViewRooms }) {
 
   const [deleteButtonHovered, setDeleteButtonHovered] = useState(null);
   const [viewButtonHovered, setViewButtonHovered] = useState(null);
-  const { isPending, data: categories, isError, error } = useCategories();
 
   if (isPending) {
     return (
