@@ -1,6 +1,6 @@
 'use client';
 
-import { Hotel, Users, Text, Calendar, Home } from 'lucide-react';
+import { Hotel, Users, Calendar, Home, CalendarPlus } from 'lucide-react';
 import { NavUser } from './collapsed-menu';
 import {
   Sidebar,
@@ -32,7 +32,7 @@ const adminItems = [
   {
     title: 'Solicitudes',
     url: '/admin/reservaciones',
-    icon: Users,
+    icon: CalendarPlus,
   },
   {
     title: 'Reservaciones',
@@ -50,12 +50,12 @@ const clientItems = [
   {
     title: 'Home',
     url: '/client',
-    icon: Hotel,
+    icon: Home,
   },
   {
     title: 'Reservaciones',
     url: '/client/reservaciones',
-    icon: Text,
+    icon: CalendarPlus,
   },
 ];
 
@@ -141,7 +141,7 @@ export function AppSidebar() {
               {rol === 'cliente' &&
                 clientItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild>
+                    <SidebarMenuButton className="text-white" asChild>
                       <Link href={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
