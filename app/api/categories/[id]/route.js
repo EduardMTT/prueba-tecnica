@@ -6,14 +6,15 @@ import { auth } from '@/lib/nextauth';
 
 export async function DELETE(request, { params }) {
   try {
+    //#region Autentificacion
     const session = await auth();
-
     if (!session || session.user.role !== 'administrador') {
       return NextResponse.json(
         { message: 'No tienes permiso para esta operación' },
         { status: 401 }
       );
     }
+    //#endregion
 
     const { id } = await params;
 
@@ -58,6 +59,7 @@ const updateCategorySchema = z.object({
 
 export async function PUT(request, { params }) {
   try {
+    //#region Autentificacion
     const session = await auth();
     if (!session || session.user.role !== 'administrador') {
       return NextResponse.json(
@@ -65,6 +67,7 @@ export async function PUT(request, { params }) {
         { status: 401 }
       );
     }
+    //#endregion
     const id = (await params).id;
 
     if (!id) {

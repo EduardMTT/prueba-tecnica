@@ -5,14 +5,15 @@ import { auth } from '@/lib/nextauth';
 
 export async function DELETE(request, { params }) {
   try {
+    //#region Autentificacion
     const session = await auth();
-
     if (!session || session.user.role !== 'administrador') {
       return NextResponse.json(
         { message: 'No tienes permiso para esta operación' },
         { status: 401 }
       );
     }
+    //#endregion
 
     const { id } = await params;
 
@@ -51,13 +52,15 @@ const updateRoomSchema = z.object({
 
 export async function PUT(request, { params }) {
   try {
-    // const session = await auth();
-    // if (!session || session.user.role !== 'administrador') {
-    //   return NextResponse.json(
-    //     { message: 'No tienes permiso para esta operación' },
-    //     { status: 401 }
-    //   );
-    // }
+    //#region Autentificacion
+    const session = await auth();
+    if (!session || session.user.role !== 'administrador') {
+      return NextResponse.json(
+        { message: 'No tienes permiso para esta operación' },
+        { status: 401 }
+      );
+    }
+    //#endregion
     const id = (await params).id;
 
     if (!id) {

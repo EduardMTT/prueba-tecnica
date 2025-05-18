@@ -47,15 +47,15 @@ const createRoomSchema = z.object({
 
 export async function POST(request) {
   try {
+    //#region Autentificacion
     const session = await auth();
-    const rolPermitido = ['administrador'];
-
-    if (!session || !rolPermitido.includes(session.user.role)) {
+    if (!session || session.user.role !== 'administrador') {
       return NextResponse.json(
         { message: 'No tienes permiso para esta operación' },
         { status: 401 }
       );
     }
+    //#endregion
 
     const body = await request.json();
     const { data: room, success, error } = createRoomSchema.safeParse(body);
