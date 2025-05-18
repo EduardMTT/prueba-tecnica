@@ -1,4 +1,4 @@
-# Gestor de Reservaciones (Next.js + Prisma)
+# Gestor para Hotel (Next.js + Prisma)
 
 Este es un proyecto desarrollado con [Next.js](https://nextjs.org) y Prisma, creado con [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
