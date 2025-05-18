@@ -21,7 +21,7 @@ Para ejecutar esta aplicación, asegúrate de que tu sistema cumpla con los sigu
 
 Asegurarte de cumplir con estos requisitos garantizará que la aplicación pueda ejecutarse correctamente en tu entorno.
 
-## 🚀 Primeros pasos
+## Primeros pasos
 
 Instala las dependencias:
 
@@ -66,7 +66,7 @@ Finalmente, para insertar los primeros registros (como el usuario inicial), ejec
 npx prisma db seed
 ```
 
-## 🚀 Ejecucion
+## Ejecucion
 Puedes iniciar el proyecto con el comando:
 
 ```bash
