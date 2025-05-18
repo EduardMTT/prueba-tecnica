@@ -21,6 +21,7 @@ model User {
   phone         String
   role          Role @default(cliente)
   password      String
+  reservations  Reservation[]
 }
 enum Role {
   administrador
@@ -41,6 +42,7 @@ model Room {
   description         String
   cost                Decimal
   images              RoomImages[]
+  reservations        DetailsReservation[]
   category            Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   categoryId   Int
 }
@@ -50,5 +52,30 @@ model RoomImages {
   imageUrl           String
   imageKey           String
   room               Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
-  roomId          Int
+  roomId             Int
+}
+
+model Reservation{
+  id                  Int @id @default(autoincrement())
+  request_date        DateTime
+  reservation_date    DateTime
+  departure_date      DateTime
+  Status              Status @default(pending)
+  details_reservation DetailsReservation[]
+  user                User @relation(fields: [userID], references: [id], onDelete: Cascade)
+  userID              Int
+}
+enum Status {
+  pending
+  accepted
+  rejected
+  canceled
+}
+
+model DetailsReservation {
+  id                Int @id @default(autoincrement())
+  reservationId     Int
+  reservation       Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  room              Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId            Int
 }

@@ -59,7 +59,7 @@ export default function Login() {
           <div className="w-auto m-4 text-center font-bold text-2xl">
             <p>Inicia Sesion</p>
           </div>
-          <div className="h-2 bg-gradient-to-r from-[#11de40] to-[#5debf2]"></div>
+          <div className="h-2 bg-gradient-to-r from-blue-800 to-[#5debf2]"></div>
           <CardHeader>
             <CardTitle className="text-center">Bienvenido!</CardTitle>
             <CardDescription className="text-center text-[#025575]/70">
@@ -114,7 +114,7 @@ export default function Login() {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-[#11de40] hover:bg-[#11de40]/90 text-[#025575] font-medium shadow-md transition-all duration-200 hover:shadow-lg"
+                    className="w-full bg-blue-700 hover:bg-[#11de40]/60 hover:text-blue-950 text-white font-medium shadow-md transition-all duration-200 hover:shadow-lg"
                   >
                     Iniciar Sesión
                   </Button>
