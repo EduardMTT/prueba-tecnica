@@ -1,9 +1,16 @@
+import { RoomsSection } from './components/rooms-section';
+import { GallerySection } from './components/gallery-section';
+import { CollaboratorsSection } from './components/collaborators-section';
 export default function LandingPage() {
   return (
     <>
       <main className="container mx-auto px-4 py-8 z-20">
         <FrontPage />
       </main>
+
+      <RoomsSection />
+      <GallerySection />
+      <CollaboratorsSection />
     </>
   );
 }

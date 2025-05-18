@@ -30,13 +30,8 @@ const adminItems = [
     icon: Hotel,
   },
   {
-    title: 'Solicitudes',
-    url: '/admin/reservaciones',
-    icon: CalendarPlus,
-  },
-  {
     title: 'Reservaciones',
-    url: '/admin/reservaciones',
+    url: '/admin/reservations',
     icon: Calendar,
   },
   {
@@ -54,8 +49,8 @@ const clientItems = [
   },
   {
     title: 'Reservaciones',
-    url: '/client/reservaciones',
-    icon: CalendarPlus,
+    url: '/client/reservations',
+    icon: Calendar,
   },
 ];
 

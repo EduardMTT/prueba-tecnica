@@ -54,7 +54,7 @@ export function PanelRooms({ categoryId }) {
             <div className="relative">
               <div className="aspect-[16/9] overflow-hidden">
                 <Image
-                  src={'/placeholder.svg?height=400&width=600'}
+                  src={'/images/HabitacionImage2.jpg'}
                   alt={'imagen'}
                   width={600}
                   height={400}
