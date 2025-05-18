@@ -26,3 +26,29 @@ enum Role {
   administrador
   cliente
 }
+
+model Category {
+  id            Int @id @default(autoincrement())
+  name          String
+  description   String
+  rooms         Room[]
+}
+ 
+model Room {
+  id                  Int @id @default(autoincrement())
+  name                String
+  capacity            Int
+  description         String
+  cost                Decimal
+  images              RoomImages[]
+  category            Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId   Int
+}
+
+model RoomImages {
+  id                 Int      @id @default(autoincrement())
+  imageUrl           String
+  imageKey           String
+  room               Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId          Int
+}
