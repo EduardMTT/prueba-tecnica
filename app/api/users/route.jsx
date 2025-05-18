@@ -7,14 +7,14 @@ import { auth } from '@/lib/nextauth';
 export async function GET(request) {
   try {
     const session = await auth();
-    if (!session || session.user.rol !== 'administrador') {
+    if (!session || session.user.role !== 'administrador') {
       return NextResponse.json(
         { message: 'No tienes permiso para esta operación' },
         { status: 401 }
       );
     }
-    const users = await db.usuario.findMany({
-      omit: { clave: true },
+    const users = await db.user.findMany({
+      omit: { password: true },
       orderBy: { id: 'asc' },
     });
 
