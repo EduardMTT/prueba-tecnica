@@ -60,7 +60,8 @@ Despues de definir correctamente tus variables de entorno ejecuta las migracione
 ```bash
 npx prisma migrate dev
 ```
-Finalmente, si el seed no se ejecuta automáticamente, puedes insertarlo manualmente para cargar los primeros registros (como el usuario administrador inicial) con el siguiente comando:
+Finalmente, si el seed no se ejecuta automáticamente,
+puedes insertarlo manualmente para cargar los primeros registros (como el usuario administrador inicial) con el siguiente comando:
 
 ```bash
 npx prisma db seed
