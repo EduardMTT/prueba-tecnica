@@ -91,15 +91,7 @@ export function PanelRooms({ categoryId }) {
               </div>
             </CardContent>
 
-            <CardFooter className="flex justify-between p-6 pt-0">
-              <Button
-                variant="outline"
-                className="border-[#0466df] text-[#0466df] hover:bg-[#0466df] hover:text-white"
-              >
-                <Link href={'#'} className="flex items-center">
-                  Ver Imagenes
-                </Link>
-              </Button>
+            <CardFooter className="flex justify-end gap-2 p-6 pt-0">
               <Button
                 variant="ghost"
                 size="icon"

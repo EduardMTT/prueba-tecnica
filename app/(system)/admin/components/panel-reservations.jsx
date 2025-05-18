@@ -163,7 +163,15 @@ export default function PanelReservations() {
                   <CardDescription>{reservation.user.email}</CardDescription>
                 )}
               </CardHeader>
-
+              <CardDescription className="flex flex-row m-5">
+                {reservation.details_reservation.map((detail) => (
+                  <div key={detail.id}>
+                    <p>Habitación: {detail.room.name}</p>
+                    <p>Descripcion: {detail.room.description}</p>
+                    <p>Capacidad: {detail.room.capacity}</p>
+                  </div>
+                ))}
+              </CardDescription>
               <CardFooter className="flex justify-end gap-2 pt-2">
                 <Button
                   name="accepted"
@@ -177,10 +185,10 @@ export default function PanelReservations() {
                 </Button>
                 <Button
                   size="sm"
-                  name="canceled"
-                  onClick={() => handleUpdate(reservation, 'canceled')}
+                  name="rejected"
+                  onClick={() => handleUpdate(reservation, 'rejected')}
                 >
-                  Cancelar
+                  Rechazar
                 </Button>
                 <DialogDeleteReservation
                   id={reservation.id}

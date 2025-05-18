@@ -33,7 +33,7 @@ export default function Register() {
     try {
       console.log('Datos enviados:', userData);
       createUsuarioMutation.mutateAsync(userData);
-      router.push('/auth/login');
+      router.push('/login');
     } catch (error) {
       toast.error('Error al registrar el usuario');
     }

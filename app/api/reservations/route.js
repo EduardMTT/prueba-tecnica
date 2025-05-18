@@ -24,7 +24,14 @@ export async function GET(request) {
       orderBy: { id: 'asc' },
       take: pageSize,
       skip: (page - 1) * pageSize,
-      include: { details_reservation: true, user: true },
+      include: {
+        details_reservation: {
+          include: {
+            room: true,
+          },
+        },
+        user: true,
+      },
       where: {
         ...(status ? { Status: { equals: status } } : {}),
         ...(session.user.role === 'cliente'
