@@ -55,7 +55,7 @@ NEXTAUTH_SECRET="your-secret-key"
 Si no cuentas con secret-key para NEXTAUTH creala (requiere Node.js):
 ```bash
 openssl rand -base64 32
-#o
+# o
 node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
 ```
 Despues de definir correctamente tus variables de entorno ejecuta las migraciones:
