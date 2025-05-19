@@ -5,13 +5,13 @@ import { auth } from '@/lib/nextauth';
 
 export async function GET(request) {
   try {
-    // const session = await auth();
-    // if (!session) {
-    //   return NextResponse.json(
-    //     { message: 'No tienes permiso para esta operación' },
-    //     { status: 401 }
-    //   );
-    // }
+    const session = await auth();
+    if (!session) {
+      return NextResponse.json(
+        { message: 'No tienes permiso para esta operación' },
+        { status: 401 }
+      );
+    }
 
     const { searchParams } = new URL(request.url);
     const reservationId = searchParams.get('reservationId');
@@ -44,13 +44,13 @@ const createDetailReservationSchema = z.object({
 
 export async function POST(request) {
   try {
-    // const session = await auth();
-    // if (!session) {
-    //   return NextResponse.json(
-    //     { message: 'No tienes permiso para esta operación' },
-    //     { status: 401 }
-    //   );
-    // }
+    const session = await auth();
+    if (!session) {
+      return NextResponse.json(
+        { message: 'No tienes permiso para esta operación' },
+        { status: 401 }
+      );
+    }
 
     const body = await request.json();
     const parsed = createDetailReservationSchema.safeParse(body);

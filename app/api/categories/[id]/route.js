@@ -1,5 +1,4 @@
 import { db } from '@/lib/db';
-// import { utapi } from '@/lib/utapi';
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { auth } from '@/lib/nextauth';
@@ -31,12 +30,6 @@ export async function DELETE(request, { params }) {
       where: { id: Number(id) },
       include: { rooms: { include: { images: true } } },
     });
-
-    // const imagesKeys = categoriaEliminada.inmuebles
-    //   .flatMap((imagen) => imagen.imagenes)
-    //   .map((img) => img.imagenKey);
-
-    // await utapi.deleteFiles([categoriaEliminada.imagenKey, ...imagesKeys]);
 
     return NextResponse.json(
       { message: 'Categoría eliminada', data: categoryEliminated },
