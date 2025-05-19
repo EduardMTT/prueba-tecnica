@@ -32,8 +32,8 @@ const createCategorySchema = z.object({
   name: z.string().min(4, 'El nombre es requerido'),
   description: z
     .string()
-    .min(10, 'Minimo 10 caracteres')
-    .max(50, 'Maximo 50 caracteres'),
+    .min(5, 'Minimo 5 caracteres para descripcion')
+    .max(50, 'Maximo 50 caracteres para descripcion'),
 });
 
 export async function POST(request) {
